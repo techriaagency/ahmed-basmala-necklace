@@ -266,7 +266,6 @@ html,body{
 
 /* ---------- video frame ---------- */
 .video-section{ margin-top: 46px; margin-left:-20px; margin-right:-20px; }
-/* ---------- video carousel (10 videos + arrows) ---------- */
 .video-carousel-wrap{
   display:flex;
   align-items:center;
@@ -289,7 +288,6 @@ html,body{
   transition: transform .2s ease, background .2s ease;
 }
 .vid-nav:active{ transform: scale(.88); }
-.tv-frame{ flex:1; min-width:0; }
 .video-title{
   text-align:center;
   font-family:'Aref Ruqaa', serif;
@@ -299,6 +297,8 @@ html,body{
   padding: 0 20px;
 }
 .tv-frame{
+  flex:1;
+  min-width:0;
   position:relative;
   border-radius: 20px;
   padding: 12px;
@@ -310,26 +310,17 @@ html,body{
   position:relative;
   border-radius: 14px;
   aspect-ratio: 3/4;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
   background-color: #17140F;
   display:flex; align-items:center; justify-content:center;
   overflow:hidden;
-  transition: aspect-ratio .3s ease;
 }
-.tv-screen video{ width:100%; height:100%; object-fit:contain; display:none; background:#17140F; }
-.play-btn{
-  width:76px; height:76px; border-radius:50%;
-  background: rgba(246,236,226,.16);
-  border: 1.5px solid var(--gold-soft);
-  display:flex; align-items:center; justify-content:center;
-  cursor:pointer;
-  backdrop-filter: blur(2px);
-  transition: transform .25s ease, background .25s ease;
+.tv-screen video{ 
+  width:100%; 
+  height:100%; 
+  object-fit:cover; 
+  display:block; 
+  background:#17140F; 
 }
-.play-btn:hover{ transform: scale(1.08); background: rgba(246,236,226,.24); }
-.play-btn svg{ width:26px; height:26px; fill: var(--ivory); margin-right:-3px; }
 .tv-caption{
   text-align:center; font-size:12.5px; color: rgba(58,46,40,.6);
   margin-top:10px; letter-spacing:.5px;
@@ -373,7 +364,6 @@ html,body{
 
 /* ---------- countdowns ---------- */
 .counters{ margin-top: 50px; display:flex; flex-direction:column; gap:34px; }
-
 .counter-card{ text-align:center; }
 .counter-label{
   font-family:'Aref Ruqaa', serif;
@@ -381,20 +371,6 @@ html,body{
   color: var(--rose);
   margin-bottom:16px;
 }
-
-.flip-row{
-  display:flex; justify-content:center; gap:10px;
-}
-.flip{
-  background: linear-gradient(160deg, #FFF8EF, #FFFDF9);
-  border: 1px solid rgba(201,162,75,.35);
-  border-radius: 10px;
-  width: 64px; padding: 12px 0 10px;
-  box-shadow: 0 8px 18px rgba(0,0,0,.1);
-}
-.flip .num{ font-size: 26px; font-weight:900; color: var(--ink); font-variant-numeric: tabular-nums; }
-.flip .unit{ font-size:10.5px; color: var(--blush); margin-top:4px; letter-spacing:.5px; }
-
 .seal{
   width: 150px; height:150px;
   margin: 0 auto;
@@ -412,134 +388,15 @@ html,body{
 }
 .seal .big-num{ font-size: 46px; font-weight:900; color: var(--wine-deep); line-height:1; }
 .seal .small-label{ font-size:12px; font-weight:700; color: var(--wine-deep); margin-top:6px; }
-
 .since-caption{
   margin-top:14px; font-size:13px; color: rgba(58,46,40,.65);
 }
-
 .footer-note{
   margin-top: 56px;
   text-align:center;
   font-size: 12.5px;
   color: rgba(58,46,40,.5);
   line-height:1.9;
-}
-
-/* ---------- time machine wheel ---------- */
-.timemachine-section{ margin-top: 50px; text-align:center; }
-.tm-title{
-  font-family:'Aref Ruqaa', serif;
-  font-size:22px;
-  color: var(--rose);
-}
-.tm-sub{
-  font-size:13.5px; color: var(--blush); margin:8px auto 26px; max-width:280px; line-height:1.7;
-}
-.wheel-wrap{ position:relative; width:260px; height:260px; margin:0 auto 22px; }
-.wheel{
-  position:relative;
-  width:100%; height:100%; border-radius:50%;
-  background: var(--ivory);
-  border: 4px solid var(--ivory);
-  box-shadow: 0 16px 34px rgba(0,0,0,.25);
-  transform: rotate(0deg);
-  overflow:hidden;
-}
-.wheel-segment{
-  position:absolute;
-  inset:0;
-  background-size: cover, cover;
-  background-position:center;
-}
-.wheel-dividers{
-  position:absolute;
-  inset:0;
-  border-radius:50%;
-  background: repeating-conic-gradient(rgba(255,255,255,.55) 0deg .8deg, transparent .8deg 36deg);
-  pointer-events:none;
-}
-.wheel-center{
-  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-  width:46px; height:46px; border-radius:50%;
-  background: var(--rose); display:flex; align-items:center; justify-content:center;
-  font-size:20px; box-shadow: 0 4px 10px rgba(0,0,0,.3);
-}
-.wheel-pointer{
-  position:absolute; top:-14px; left:50%; transform:translateX(-50%);
-  font-size:22px; color: var(--rose);
-}
-.tm-spin-btn{
-  font-family:'Tajawal', sans-serif;
-  font-size:15px; font-weight:700;
-  background: var(--rose); color: var(--ivory);
-  border:none; border-radius:999px; padding:12px 30px;
-  cursor:pointer; transition: transform .2s ease;
-}
-.tm-spin-btn:active{ transform: scale(.95); }
-.tm-spin-btn:disabled{ opacity:.6; cursor:default; }
-.tm-result{
-  margin-top:24px; display:flex; flex-direction:column; align-items:center; gap:10px;
-  animation: heroIn2 .6s ease both;
-}
-@keyframes heroIn2{ from{ opacity:0; transform: translateY(10px);} to{ opacity:1; transform: translateY(0);} }
-.tm-result-photo{
-  width:220px; height:220px; border-radius:22px;
-  background-size: cover, cover;
-  background-position:center;
-  box-shadow: 0 18px 36px rgba(0,0,0,.28);
-}
-.tm-result-year{
-  font-family:'Aref Ruqaa', serif; font-size:20px; color: var(--rose);
-}
-
-/* ---------- finger touch intro gate ---------- */
-.finger-gate{
-  position:fixed; inset:0; z-index:10000;
-  background: radial-gradient(ellipse 900px 500px at 50% 30%, #FFF6EA 0%, var(--wine) 55%, #FFFDF9 100%);
-  display:flex; align-items:center; justify-content:center;
-  transition: opacity .8s ease;
-  overflow:hidden;
-}
-.finger-gate.opened{ opacity:0; pointer-events:none; }
-.hand{
-  position:absolute; bottom:8%; width:150px; height:210px;
-  transition: transform 1.3s cubic-bezier(.34,1.2,.4,1);
-}
-.hand img{ width:100%; height:100%; object-fit:contain; display:block; }
-.hand svg{ width:100%; height:100%; }
-.hand-left{ left:6%; }
-.hand-right{ right:6%; transform: scaleX(-1); }
-.fg-spark{
-  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) scale(0);
-  font-size:60px; opacity:0;
-  transition: transform .5s cubic-bezier(.34,1.56,.64,1), opacity .4s ease;
-}
-.finger-gate.touched .fg-spark{ transform:translate(-50%,-50%) scale(1); opacity:1; }
-
-/* ---------- don't press button ---------- */
-.dont-press-wrap{ margin-top: 40px; text-align:center; }
-.dont-press-btn{
-  font-family:'Tajawal', sans-serif;
-  font-size:14px; font-weight:700;
-  background:#d9b969; color:#fff;
-  border:none; border-radius:999px;
-  padding:12px 26px; cursor:pointer;
-  box-shadow: 0 10px 20px rgba(161,58,58,.3);
-  transition: transform .2s ease;
-}
-.dont-press-btn:active{ transform: scale(.95); }
-.dont-press-btn.pressed{ animation: dpShake .5s ease; }
-@keyframes dpShake{
-  0%,100%{ transform: translateX(0) rotate(0deg); }
-  25%{ transform: translateX(-6px) rotate(-3deg); }
-  75%{ transform: translateX(6px) rotate(3deg); }
-}
-
-@media (max-width:380px){
-  .quote-top{ font-size:26px; }
-  .polaroid{ width:250px; }
-  .flip{ width:56px; }
-  .hand{ width:110px; height:150px; }
 }
 
 /* ---------- translate button + loading overlay ---------- */
@@ -558,11 +415,7 @@ html,body{
   font-weight:700;
   cursor:pointer;
   box-shadow: 0 8px 18px rgba(0,0,0,.4);
-  transition: transform .15s ease, filter .15s ease, opacity .15s ease;
 }
-.translate-btn:active{ transform: scale(.96); }
-.translate-btn:disabled{ opacity:.6; cursor:default; }
-
 .mute-btn{
   position:fixed;
   top:18px; left:78px;
@@ -576,36 +429,7 @@ html,body{
   font-size: 15px;
   cursor:pointer;
   box-shadow: 0 8px 18px rgba(0,0,0,.4);
-  transition: transform .15s ease, filter .15s ease, opacity .15s ease;
 }
-.mute-btn:active{ transform: scale(.9); }
-
-.loading-overlay{
-  position: fixed;
-  inset: 0;
-  background: var(--wine-deep);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  gap:14px;
-  z-index: 9998;
-}
-.loading-overlay.active{ display:flex; }
-.loading-spinner{
-  width:46px; height:46px;
-  border-radius:50%;
-  border: 4px solid rgba(228,205,151,.2);
-  border-top-color: var(--gold);
-  animation: spin .8s linear infinite;
-}
-.loading-overlay .loading-text{
-  font-family:'Tajawal', sans-serif;
-  font-size:14px;
-  font-weight:700;
-  color: var(--ivory);
-}
-@keyframes spin{ to{ transform: rotate(360deg); } }
 
 /* ---------- intro cover screen ---------- */
 .intro-cover{
@@ -634,11 +458,8 @@ html,body{
   background: var(--gold-soft);
   padding:12px 26px;
   border-radius:999px;
-  letter-spacing:.5px;
   box-shadow: 0 8px 18px rgba(0,0,0,.15);
-  animation: introPulse 1.8s ease-in-out infinite;
 }
-@keyframes introPulse{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.05); } }
 .intro-cover.hidden{ opacity:0; pointer-events:none; }
 .intro-cover.shake{ animation: shakeX .5s ease; }
 @keyframes shakeX{
@@ -675,43 +496,33 @@ html,body{
   cursor:pointer;
   white-space:nowrap;
   box-shadow: 0 8px 18px rgba(0,0,0,.15);
-  transition: transform .2s ease;
 }
-.intro-unlock-btn:active{ transform: scale(.95); }
 .intro-error{
   font-size:12.5px; color:#a13a3a; text-align:center;
 }
-
-/* لما الصفحة تتقلب لإنجليزي، الخط الزمني والنقط بتاعتها تتحرك للناحية التانية */
-/* الكروت الأفقية بتتبع اتجاه الصفحة تلقائيًا من غير حاجة لقواعد إضافية */
 </style>
 </head>
 <body>
 
 <div class="intro-cover" id="introCover">
   <img src="image/M7.jpg" alt="" class="intro-cover-img" onerror="this.style.display='none'">
-  <div class="intro-cover-hint translatable">اكتبي كلمة السر عشان تبدأي 💛</div>
+  <div class="intro-cover-hint">اكتبي كلمة السر عشان تبدأي 💛</div>
   <div class="intro-gate-form">
     <input type="text" id="introPassword" class="intro-password-input" placeholder="كلمة السر" inputmode="numeric">
     <button id="introUnlockBtn" class="intro-unlock-btn" type="button">دوسي هنا</button>
   </div>
-  <div class="intro-error translatable" id="introError" hidden>كلمة السر مش صح، جربي تاني 💭</div>
+  <div class="intro-error" id="introError" hidden>كلمة السر مش صح، جربي تاني 💭</div>
 </div>
 
 <div class="hearts-bg" id="heartsBg" aria-hidden="true"></div>
-
-<div class="loading-overlay" id="loadingOverlay">
-  <div class="loading-spinner"></div>
-  <div class="loading-text" id="loadingText">جاري تجهيز النسخة الإنجليزية...</div>
-</div>
 
 <button id="translateBtn" class="translate-btn" type="button">EN</button>
 <button id="muteBtn" class="mute-btn" type="button" aria-label="كتم/تشغيل الصوت">🔊</button>
 
 <div class="page">
 
-  <div class="eyebrow eyebrow-ar translatable">قصة حب</div>
-  <div class="quote-top"><span class="translatable">من لحظة ما شُفتك</span><br><span class="accent translatable">اتغيّر معنى كل حاجة</span></div>
+  <div class="eyebrow eyebrow-ar">قصة حب</div>
+  <div class="quote-top"><span>من لحظة ما شُفتك</span><br><span class="accent">اتغيّر معنى كل حاجة</span></div>
 
   <div class="divider-orn"><span class="line"></span>♥<span class="line"></span></div>
 
@@ -723,7 +534,7 @@ html,body{
         <div class="photo">
           <div class="photo-inner">
             <div class="photo-front" style="background:url('image/M1.jpg') center/cover no-repeat, linear-gradient(135deg,#F3E4D8,#D9B98C)"></div>
-            <div class="photo-back"><p class="translatable">يوم ما اتقابلنا، حسيت إن في حاجة هتتغير 💫</p></div>
+            <div class="photo-back"><p>يوم ما اتقابلنا، حسيت إن في حاجة هتتغير 💫</p></div>
           </div>
         </div>
       </div>
@@ -732,7 +543,7 @@ html,body{
         <div class="photo">
           <div class="photo-inner">
             <div class="photo-front" style="background:url('image/M10.jpeg') center/cover no-repeat, linear-gradient(135deg,#EFE1C9,#C9A24B)"></div>
-            <div class="photo-back"><p class="translatable">عيونك هي أول مكان لقيت فيه راحتي</p></div>
+            <div class="photo-back"><p>عيونك هي أول مكان لقيت فيه راحتي</p></div>
           </div>
         </div>
       </div>
@@ -741,7 +552,7 @@ html,body{
         <div class="photo">
           <div class="photo-inner">
             <div class="photo-front" style="background:url('image/M3.jpg') center/cover no-repeat, linear-gradient(135deg,#E9D9C2,#A9782E)"></div>
-            <div class="photo-back"><p class="translatable">أول مرة اكتشفنا إن السفر مع بعض حكاية تانية 🌍</p></div>
+            <div class="photo-back"><p>أول مرة اكتشفنا إن السفر مع بعض حكاية تانية 🌍</p></div>
           </div>
         </div>
       </div>
@@ -750,7 +561,7 @@ html,body{
         <div class="photo">
           <div class="photo-inner">
             <div class="photo-front" style="background:url('image/M11.JPEG') center/cover no-repeat, linear-gradient(135deg,#F6ECE2,#C9A24B)"></div>
-            <div class="photo-back"><p class="translatable">وأنتِ أغلى ما اقتناه قلبي في هالدنيا</p></div>
+            <div class="photo-back"><p>وأنتِ أغلى ما اقتناه قلبي في هالدنيا</p></div>
           </div>
         </div>
       </div>
@@ -759,34 +570,7 @@ html,body{
         <div class="photo">
           <div class="photo-inner">
             <div class="photo-front" style="background:url('image/M13.JPEG') center/cover no-repeat, linear-gradient(135deg,#E4CD97,#8A7266)"></div>
-            <div class="photo-back"><p class="translatable">يوم قلنا فيه "نعم" قدام كل اللي بيحبونا 💍</p></div>
-          </div>
-        </div>
-      </div>
-      <div class="polaroid" data-i="5">
-        <div class="pin"></div>
-        <div class="photo">
-          <div class="photo-inner">
-            <div class="photo-front" style="background:url('image/M14.JPEG') center/cover no-repeat, linear-gradient(135deg,#D9B98C,#8A7266)"></div>
-            <div class="photo-back"><p class="translatable">ما رأيت الحب حتى رأيتك، فصرتِ عندي كل المعاني</p></div>
-          </div>
-        </div>
-      </div>
-      <div class="polaroid" data-i="7">
-        <div class="pin"></div>
-        <div class="photo">
-          <div class="photo-inner">
-            <div class="photo-front" style="background:url('image/M8.jpeg') center/cover no-repeat, linear-gradient(135deg,#F3E4D8,#C9A24B)"></div>
-            <div class="photo-back"><p class="translatable">ولسه القصة مستمرة، وكل يوم بيزود حب جديد</p></div>
-          </div>
-        </div>
-      </div>
-      <div class="polaroid" data-i="8">
-        <div class="pin"></div>
-        <div class="photo">
-          <div class="photo-inner">
-            <div class="photo-front" style="background:url('image/M15.jpeg') center/cover no-repeat, linear-gradient(135deg,#E9D9C2,#8A7266)"></div>
-            <div class="photo-back"><p class="translatable">خدتِ إيدي وسِرتِ بيها لأجمل طريق</p></div>
+            <div class="photo-back"><p>يوم قلنا فيه "نعم" قدام كل اللي بيحبونا 💍</p></div>
           </div>
         </div>
       </div>
@@ -794,120 +578,114 @@ html,body{
     <div class="dots" id="dots"></div>
   </div>
 
-  <p class="quote-bottom translatable">كل صورة فيها حتة من حكايتنا، وكل يوم بيزود سطر جديد فيها 💫</p>
+  <p class="quote-bottom">كل صورة فيها حتة من حكايتنا، وكل يوم بيزود سطر جديد فيها 💫</p>
 
   <!-- محطات حكايتنا -->
   <div class="timeline-section">
-    <div class="timeline-title translatable">محطات حكايتنا 📖</div>
+    <div class="timeline-title">محطات حكايتنا 📖</div>
     <div class="timeline-cards">
       <div class="t-card">
         <div class="t-dot">☎️</div>
-        <div class="t-label translatable">أول مكالمة لبابا</div>
-        <div class="t-date translatable">١٤ فبراير ٢٠٢٦</div>
-        <div class="t-quote translatable">أول خطوة رسمية في طريقنا، بقلب واثق وكلمة صادقة</div>
+        <div class="t-label">أول مكالمة لبابا</div>
+        <div class="t-date">١٤ فبراير ٢٠٢٦</div>
+        <div class="t-quote">أول خطوة رسمية في طريقنا، بقلب واثق وكلمة صادقة</div>
       </div>
       <div class="t-card">
         <div class="t-dot">🤍</div>
-        <div class="t-label translatable">أول قعدة بينا</div>
-        <div class="t-date translatable">٤ مارس ٢٠٢٦</div>
-        <div class="t-quote translatable">أول مرة قعدنا مع بعض، والوقت مر وإحنا مش حاسين</div>
+        <div class="t-label">أول قعدة بينا</div>
+        <div class="t-date">٤ مارس ٢٠٢٦</div>
+        <div class="t-quote">أول مرة قعدنا مع بعض، والوقت مر وإحنا مش حاسين</div>
       </div>
       <div class="t-card">
         <div class="t-dot">🤲</div>
-        <div class="t-label translatable">قراية الفاتحة</div>
-        <div class="t-date translatable">١١ مارس ٢٠٢٦</div>
-        <div class="t-quote translatable">بداية حكايتنا الرسمية، وأول خطوة في طريقنا سوا</div>
+        <div class="t-label">قراية الفاتحة</div>
+        <div class="t-date">١١ مارس ٢٠٢٦</div>
+        <div class="t-quote">بداية حكايتنا الرسمية، وأول خطوة في طريقنا سوا</div>
       </div>
       <div class="t-card">
         <div class="t-dot">💛</div>
-        <div class="t-label translatable">جبنا الشبكة</div>
-        <div class="t-date translatable">١٦ مارس ٢٠٢٦</div>
-        <div class="t-quote translatable">لحظة لبسنا الشبكة، وقلوبنا اتربطت قبل الإيدين</div>
+        <div class="t-label">جبنا الشبكة</div>
+        <div class="t-date">١٦ مارس ٢٠٢٦</div>
+        <div class="t-quote">لحظة لبسنا الشبكة، وقلوبنا اتربطت قبل الإيدين</div>
       </div>
       <div class="t-card">
         <div class="t-dot">💍</div>
-        <div class="t-label translatable">خطوبتنا</div>
-        <div class="t-date translatable">٢٦ مارس ٢٠٢٦</div>
-        <div class="t-quote translatable">يوم قلنا فيه "نعم" قدام كل اللي بيحبونا</div>
+        <div class="t-label">خطوبتنا</div>
+        <div class="t-date">٢٦ مارس ٢٠٢٦</div>
+        <div class="t-quote">يوم قلنا فيه "نعم" قدام كل اللي بيحبونا</div>
       </div>
     </div>
   </div>
 
   <!-- الفيديوهات -->
   <div class="video-section">
-    <div class="video-title translatable">لحظاتنا في فيديو 🎬</div>
+    <div class="video-title">لحظاتنا في فيديو 🎬</div>
 
     <div class="video-carousel-wrap">
-      <button class="vid-nav vid-nav-prev" id="vidPrev" aria-label="الفيديو السابق">‹</button>
+      <button class="vid-nav" id="vidPrev" aria-label="الفيديو السابق">‹</button>
 
-      <div class="tv-frame" id="tvFrame">
-        <div class="tv-screen" id="tvScreen">
-          <!-- حطي فيديوهاتك العشرة جوه فولدر "image" جمب ملف الـ HTML ده -->
-          <!-- بنفس الأسامي بالظبط: image/video1.mp4 لحد image/video10.mp4 -->
-          <video id="mainVideo" playsinline controls poster="image/video1-poster.png">
+      <div class="tv-frame">
+        <div class="tv-screen">
+          <video id="mainVideo" controls playsinline>
             <source id="mainVideoSource" src="image/video1.mp4" type="video/mp4">
+            المتصفح لا يدعم عرض الفيديو
           </video>
-          <button class="play-btn" id="playBtn" aria-label="تشغيل الفيديو">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-          </button>
         </div>
-        <div class="tv-caption translatable">   </div>
+        <div class="tv-caption" id="vidCaption">الفيديو الأول</div>
       </div>
 
-      <button class="vid-nav vid-nav-next" id="vidNext" aria-label="الفيديو التالي">›</button>
+      <button class="vid-nav" id="vidNext" aria-label="الفيديو التالي">›</button>
     </div>
-
-    <div class="dots" id="videoDots"></div>
   </div>
 
   <!-- صور إضافية -->
   <div class="gallery-section">
-    <div class="gallery-title translatable">لحظات حلوة 📸</div>
+    <div class="gallery-title">لحظات حلوة 📸</div>
     <div class="gallery-grid gallery-grid-2">
       <div class="gallery-item"><div class="g-bg" style="background:url('image/M2.jpg') center/cover no-repeat, linear-gradient(135deg,#F3E4D8,#D9B98C)"></div></div>
       <div class="gallery-item"><div class="g-bg" style="background:url('image/M4.jpeg') center/cover no-repeat, linear-gradient(135deg,#EFE1C9,#C9A24B)"></div></div>
       <div class="gallery-item"><div class="g-bg" style="background:url('image/M5.jpeg') center/cover no-repeat, linear-gradient(135deg,#E9D9C2,#A9782E)"></div></div>
       <div class="gallery-item"><div class="g-bg" style="background:url('image/M6.jpeg') center/cover no-repeat, linear-gradient(135deg,#F6ECE2,#C9A24B)"></div></div>
-      <div class="gallery-item"><div class="g-bg" style="background:url('image/M9.jpg') center/cover no-repeat, linear-gradient(135deg,#E4CD97,#8A7266)"></div></div>
-      <div class="gallery-item"><div class="g-bg" style="background:url('image/M12.jpg') center/cover no-repeat, linear-gradient(135deg,#D9B98C,#8A7266)"></div></div>
     </div>
   </div>
 
   <!-- العدادات -->
   <div class="counters">
-
     <div class="counter-card">
-      <div class="counter-label translatable">من يوم ما قابلنا بعض</div>
+      <div class="counter-label">من يوم ما قابلنا بعض</div>
       <div class="seal">
         <div class="big-num" id="daysTogether">--</div>
-        <div class="small-label translatable">يوم حب</div>
+        <div class="small-label">يوم حب</div>
       </div>
-      <div class="since-caption translatable">من 4 مارس 2026 وإحنا بنكتب حكايتنا سوا 💍</div>
+      <div class="since-caption">من 4 مارس 2026 وإحنا بنكتب حكايتنا سوا 💍</div>
     </div>
-
   </div>
 
-  <div class="footer-note translatable">صُنع بحب، لأجمل حكاية 💛</div>
+  <div class="footer-note">صُنع بحب، لأجمل حكاية 💛</div>
 
-  <!-- موسيقى خلفية هادئة للموقع -->
   <audio id="bgMusic" loop>
-    <!-- ضعي رابط الموسيقى الهادئة هنا: <source src="bg-music.mp3" type="audio/mpeg"> -->
-
     <source src="image/Youm_Matbelna.mp3" type="audio/mpeg">
   </audio>
   <a class="brand-credit" href="https://linktr.ee/techriamarkting" target="_blank" rel="noopener">
-    <span class="translatable">صُنع بواسطة</span> <span>Techria Team</span>
+    <span>صُنع بواسطة</span> <span>Techria Team</span>
   </a>
 </div>
 
 <script>
-
-// ---------- الموسيقى الهادئة للموقع ----------
+// ---------- الموسيقى الخلفية ----------
 const bgMusic = document.getElementById('bgMusic');
-function pauseBgMusic(){ if (!bgMusic.paused) bgMusic.pause(); }
-function resumeBgMusic(){ if (bgMusic.querySelector('source')) bgMusic.play().catch(()=>{}); }
+const muteBtn = document.getElementById('muteBtn');
+muteBtn.addEventListener('click', () => {
+  if (bgMusic.paused) {
+    bgMusic.play();
+    muteBtn.textContent = '🔊';
+  } else {
+    bgMusic.pause();
+    muteBtn.textContent = '🔇';
+  }
+});
 
-// ---------- شاشة الصورة الأولى (كلمة سر تفتح الموقع + تشغل الأغنية) ----------
+// ---------- فتح شاشة كلمة السر ----------
 const INTRO_PASSWORD = '2026';
 const introCover = document.getElementById('introCover');
 const introPassword = document.getElementById('introPassword');
@@ -927,32 +705,33 @@ function tryUnlockIntro(){
   }
 }
 introUnlockBtn.addEventListener('click', tryUnlockIntro);
+introPassword.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') tryUnlockIntro();
+});
 
-// ---------- خلفية القلوب المتحركة ----------
+// ---------- القلوب المتحركة ----------
 const heartsBg = document.getElementById('heartsBg');
 const HEART_SVG = '<svg viewBox="0 0 32 29" xmlns="http://www.w3.org/2000/svg"><path d="M16 27.5S2 18.7 2 9.9C2 5 5.8 2 9.7 2c2.7 0 5 1.4 6.3 3.6C17.3 3.4 19.6 2 22.3 2 26.2 2 30 5 30 9.9 30 18.7 16 27.5 16 27.5Z" fill="none" stroke="#E3313D" stroke-width="2"/></svg>';
 
 function makeHeart(){
   const el = document.createElement('div');
   el.className = 'heart';
-  const isBig = Math.random() < 0.3;
-  const size = isBig ? (46 + Math.random() * 34) : (14 + Math.random() * 20);
+  const size = 14 + Math.random() * 20;
   const left = Math.random() * 100;
   const duration = 6 + Math.random() * 6;
   const delay = Math.random() * 3;
-  const drift = (Math.random() * 40 - 20) + 'px';
   el.style.left = left + '%';
   el.style.width = size + 'px';
   el.style.height = size + 'px';
-  el.style.setProperty('--drift', drift);
+  el.style.setProperty('--drift', (Math.random() * 40 - 20) + 'px');
   el.style.animationDuration = duration + 's';
   el.style.animationDelay = delay + 's';
   el.innerHTML = HEART_SVG;
   heartsBg.appendChild(el);
 }
-for (let i = 0; i < 22; i++) makeHeart();
+for (let i = 0; i < 15; i++) makeHeart();
 
-// ---------- الكاروسيل ----------
+// ---------- كاروسيل الصور (Polaroid) ----------
 const slides = document.querySelectorAll('.polaroid');
 const dotsWrap = document.getElementById('dots');
 let current = 0;
@@ -960,12 +739,13 @@ let current = 0;
 slides.forEach((_, i) => {
   const d = document.createElement('button');
   d.className = 'dot' + (i === 0 ? ' on' : '');
-  d.addEventListener('click', () => { current = i; render(); resetAuto(); });
+  d.addEventListener('click', () => { current = i; renderSlides(); resetAuto(); });
   dotsWrap.appendChild(d);
 });
 
-function render(){
+function renderSlides(){
   const n = slides.length;
+  if(n === 0) return;
   slides.forEach((el, i) => {
     el.classList.remove('active','prev','next','hidden');
     if (i === current) el.classList.add('active');
@@ -973,209 +753,54 @@ function render(){
     else if (i === (current + 1) % n) el.classList.add('next');
     else el.classList.add('hidden');
   });
-  [...dotsWrap.children].forEach((d,i) => d.classList.toggle('on', i === current));
+  if(dotsWrap.children.length > 0) {
+    [...dotsWrap.children].forEach((d,i) => d.classList.toggle('on', i === current));
+  }
 }
-render();
+renderSlides();
 
-let auto = setInterval(nextSlide, 3200);
-function nextSlide(){ current = (current + 1) % slides.length; render(); }
-function resetAuto(){ clearInterval(auto); auto = setInterval(nextSlide, 3200); }
+let auto = setInterval(nextSlide, 3500);
+function nextSlide(){
+  current = (current + 1) % slides.length;
+  renderSlides();
+}
+function resetAuto(){
+  clearInterval(auto);
+  auto = setInterval(nextSlide, 3500);
+}
 
-// ---------- الفيديوهات (كاروسيل ١٠ فيديوهات) ----------
-const playBtn = document.getElementById('playBtn');
-const video = document.getElementById('mainVideo');
+// ---------- تنقل الفيديوهات العشرة ----------
+const totalVideos = 10;
+let currentVideoIndex = 1;
+const mainVideo = document.getElementById('mainVideo');
 const mainVideoSource = document.getElementById('mainVideoSource');
-const tvScreen = document.getElementById('tvScreen');
-const videoDotsWrap = document.getElementById('videoDots');
-const vidPrevBtn = document.getElementById('vidPrev');
-const vidNextBtn = document.getElementById('vidNext');
+const vidPrev = document.getElementById('vidPrev');
+const vidNext = document.getElementById('vidNext');
+const vidCaption = document.getElementById('vidCaption');
 
-// اسماء ملفات الفيديوهات العشرة - حطيهم جوه فولدر "image" بنفس الأسماء دي (video1.mp4 ... video10.mp4)
-const videoSources = Array.from({ length: 10 }, (_, i) => `image/video${i + 1}.mp4`);
-// صورة غلاف لكل فيديو تظهر بدل الشاشة السودة قبل التشغيل (بنفس رقم الفيديو)
-// صورة الكفر — نفس الصورة بتتحط على كل الفيديوهات العشرة
-const videoPosters = Array.from({ length: 10 }, () => `image/video1-poster.png`);
-let vidIndex = 0;
+function updateVideo() {
+  mainVideo.pause();
+  mainVideoSource.src = `image/video${currentVideoIndex}.mp4`;
+  mainVideo.load();
+  vidCaption.textContent = `الفيديو رقم ${currentVideoIndex}`;
+}
 
-videoSources.forEach((_, i) => {
-  const d = document.createElement('button');
-  d.className = 'dot' + (i === 0 ? ' on' : '');
-  d.addEventListener('click', () => { vidIndex = i; loadVideo(); });
-  videoDotsWrap.appendChild(d);
+vidNext.addEventListener('click', () => {
+  currentVideoIndex = currentVideoIndex >= totalVideos ? 1 : currentVideoIndex + 1;
+  updateVideo();
 });
 
-function loadVideo(){
-  video.pause();
-  video.style.display = 'none';
-  playBtn.style.display = '';
-  tvScreen.style.aspectRatio = '3 / 4';
-  mainVideoSource.src = videoSources[vidIndex];
-  video.setAttribute('poster', videoPosters[vidIndex]);
-  tvScreen.style.backgroundImage = `url('${videoPosters[vidIndex]}')`;
-  video.load();
-  [...videoDotsWrap.children].forEach((d, i) => d.classList.toggle('on', i === vidIndex));
-  resumeBgMusic();
-}
-loadVideo();
-
-// لما أبعاد الفيديو الحقيقية تتعرف، بنظبط شكل الفريم عشان يطابقها بالظبط (يشيل الأسود خالص)
-video.addEventListener('loadedmetadata', () => {
-  if (video.videoWidth && video.videoHeight){
-    tvScreen.style.aspectRatio = `${video.videoWidth} / ${video.videoHeight}`;
-  }
+vidPrev.addEventListener('click', () => {
+  currentVideoIndex = currentVideoIndex <= 1 ? totalVideos : currentVideoIndex - 1;
+  updateVideo();
 });
 
-vidPrevBtn.addEventListener('click', () => {
-  vidIndex = (vidIndex - 1 + videoSources.length) % videoSources.length;
-  loadVideo();
-});
-vidNextBtn.addEventListener('click', () => {
-  vidIndex = (vidIndex + 1) % videoSources.length;
-  loadVideo();
-});
-
-playBtn.addEventListener('click', () => {
-  if (video.querySelector('source')) {
-    video.style.display = 'block';
-    playBtn.style.display = 'none';
-    pauseBgMusic();
-    video.play();
-  }
-});
-video.addEventListener('pause', resumeBgMusic);
-video.addEventListener('ended', resumeBgMusic);
-
-// ---------- زرار كتم/تشغيل الصوت ----------
-const muteBtn = document.getElementById('muteBtn');
-let isMuted = false;
-muteBtn.addEventListener('click', () => {
-  isMuted = !isMuted;
-  bgMusic.muted = isMuted;
-  muteBtn.textContent = isMuted ? '🔇' : '🔊';
-  if (!isMuted) resumeBgMusic();
-});
-
-// ---------- عداد أيام الخطوبة (تصاعدي، بيزيد يوميًا تلقائيًا) ----------
-const startDate = new Date('2026-03-04T00:00:00');
-function updateDaysTogether(){
-  const now = new Date();
-  const diff = now - startDate;
-  const days = Math.max(0, Math.floor(diff / (1000*60*60*24)));
-  document.getElementById('daysTogether').textContent = days;
-}
-updateDaysTogether();
-setInterval(updateDaysTogether, 60*1000);
-
-// ---------- ترجمة الصفحة EN/AR باستخدام MyMemory Translation API ----------
-let currentLang = 'ar';
-
-async function translateText(text, sourceLang, targetLang) {
-  const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${sourceLang}|${targetLang}`;
-  const res = await fetch(url, { method: 'GET' });
-  if (!res.ok) throw new Error('HTTP ' + res.status);
-  const data = await res.json();
-
-  if (!data || data.responseStatus !== 200) {
-    throw new Error('responseStatus: ' + (data && data.responseStatus));
-  }
-
-  const translated = data.responseData && data.responseData.translatedText;
-  if (!translated || /MYMEMORY WARNING|NO QUERY SPECIFIED/i.test(translated)) {
-    throw new Error('رد غير صالح من الـ API: ' + translated);
-  }
-
-  return translated;
-}
-
-// MyMemory بيحط أحيانًا نقطة/نقطتين رأسيتين زيادة آخر الترجمة حتى لو النص الأصلي مالوش
-function cleanTranslation(original, translated) {
-  let result = translated.trim();
-  const originalEndsWithPunct = /[.!?؟…:]\s*$/.test(original.trim());
-  if (!originalEndsWithPunct) {
-    result = result.replace(/[.\u2026:]+[\s\u00A0]*$/, '').trim();
-  }
-  return result;
-}
-
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-async function showEnglish() {
-  const elements = Array.from(document.querySelectorAll('.translatable'));
-  const BATCH_SIZE = 4;
-
-  for (let i = 0; i < elements.length; i += BATCH_SIZE) {
-    const batch = elements.slice(i, i + BATCH_SIZE);
-
-    await Promise.all(batch.map(async (el) => {
-      if (!el.dataset.originalText) {
-        el.dataset.originalText = el.textContent.trim();
-      }
-
-      if (el.dataset.translatedText) {
-        el.textContent = el.dataset.translatedText;
-        return;
-      }
-
-      try {
-        const translated = await translateText(el.dataset.originalText, 'ar', 'en');
-        const cleaned = cleanTranslation(el.dataset.originalText, translated);
-        el.dataset.translatedText = cleaned;
-        el.textContent = cleaned;
-      } catch (err) {
-        console.error('تعذّرت ترجمة هذا العنصر:', el.dataset.originalText, err);
-      }
-    }));
-
-    if (i + BATCH_SIZE < elements.length) {
-      await sleep(300);
-    }
-  }
-}
-
-function showArabic() {
-  const elements = Array.from(document.querySelectorAll('.translatable'));
-  elements.forEach(el => {
-    if (el.dataset.originalText) {
-      el.textContent = el.dataset.originalText;
-    }
-  });
-}
-
-
-async function toggleLanguage() {
-  const btn = document.getElementById('translateBtn');
-  const overlay = document.getElementById('loadingOverlay');
-
-  btn.disabled = true;
-
-  try {
-    if (currentLang === 'ar') {
-      overlay.classList.add('active');
-      await showEnglish();
-      currentLang = 'en';
-      btn.textContent = 'AR';
-      document.documentElement.setAttribute('dir', 'ltr');
-      document.documentElement.setAttribute('lang', 'en');
-    } else {
-      showArabic();
-      currentLang = 'ar';
-      btn.textContent = 'EN';
-      document.documentElement.setAttribute('dir', 'rtl');
-      document.documentElement.setAttribute('lang', 'ar');
-    }
-  } catch (err) {
-    console.error('حصل خطأ أثناء الترجمة:', err);
-    alert('تعذّر الاتصال بخدمة الترجمة، تأكد من الاتصال بالإنترنت وحاول تاني.');
-  } finally {
-    overlay.classList.remove('active');
-    btn.disabled = false;
-  }
-}
-
-document.getElementById('translateBtn').addEventListener('click', toggleLanguage);
+// ---------- حساب عدد أيام الحب ----------
+const startDate = new Date('2026-03-04');
+const today = new Date();
+const diffTime = Math.abs(today - startDate);
+const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+document.getElementById('daysTogether').textContent = diffDays;
 </script>
-
 </body>
 </html>
