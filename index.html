@@ -362,7 +362,7 @@ html,body{
 }
 .gallery-item .g-bg{ width:100%; height:100%; border-radius:9px; box-shadow: inset 0 0 0 1px rgba(255,255,255,.5); }
 
-/* ---------- countdowns ---------- */
+/* ---------- counters ---------- */
 .counters{ margin-top: 50px; display:flex; flex-direction:column; gap:34px; }
 .counter-card{ text-align:center; }
 .counter-label{
@@ -399,7 +399,7 @@ html,body{
   line-height:1.9;
 }
 
-/* ---------- translate button + loading overlay ---------- */
+/* ---------- buttons ---------- */
 .translate-btn{
   position:fixed;
   top:18px; left:18px;
@@ -627,11 +627,10 @@ html,body{
       <div class="tv-frame">
         <div class="tv-screen">
           <video id="mainVideo" controls playsinline>
-            <source id="mainVideoSource" src="image/video1.mp4" type="video/mp4">
             المتصفح لا يدعم عرض الفيديو
           </video>
         </div>
-        <div class="tv-caption" id="vidCaption">الفيديو الأول</div>
+        <div class="tv-caption" id="vidCaption">الفيديو رقم 1</div>
       </div>
 
       <button class="vid-nav" id="vidNext" aria-label="الفيديو التالي">›</button>
@@ -769,21 +768,39 @@ function resetAuto(){
   auto = setInterval(nextSlide, 3500);
 }
 
-// ---------- تنقل الفيديوهات العشرة ----------
+// ---------- نظام الفيديوهات الذكي (يجرب كل الامتدادات تلقائياً) ----------
 const totalVideos = 10;
 let currentVideoIndex = 1;
 const mainVideo = document.getElementById('mainVideo');
-const mainVideoSource = document.getElementById('mainVideoSource');
 const vidPrev = document.getElementById('vidPrev');
 const vidNext = document.getElementById('vidNext');
 const vidCaption = document.getElementById('vidCaption');
 
+// قائمة الامتدادات المحتملة لتجربتها بالترتيب
+const extensions = ['.mp4', '.MP4', '.MOV', '.mov', '.mkv', '.MKV'];
+let extIndex = 0;
+
 function updateVideo() {
   mainVideo.pause();
-  mainVideoSource.src = `image/video${currentVideoIndex}.mp4`;
-  mainVideo.load();
-  vidCaption.textContent = `الفيديو رقم ${currentVideoIndex}`;
+  extIndex = 0;
+  tryLoadingCurrentExtension();
 }
+
+function tryLoadingCurrentExtension() {
+  if (extIndex < extensions.length) {
+    mainVideo.src = `image/video${currentVideoIndex}${extensions[extIndex]}`;
+    mainVideo.load();
+    vidCaption.textContent = `الفيديو رقم ${currentVideoIndex}`;
+  } else {
+    vidCaption.textContent = `تعذر العثور على ملف الفيديو رقم ${currentVideoIndex}`;
+  }
+}
+
+// لو الامتداد الحالي فشل، جرب الامتداد اللي بعده تلقائياً
+mainVideo.addEventListener('error', function() {
+  extIndex++;
+  tryLoadingCurrentExtension();
+});
 
 vidNext.addEventListener('click', () => {
   currentVideoIndex = currentVideoIndex >= totalVideos ? 1 : currentVideoIndex + 1;
@@ -794,6 +811,9 @@ vidPrev.addEventListener('click', () => {
   currentVideoIndex = currentVideoIndex <= 1 ? totalVideos : currentVideoIndex - 1;
   updateVideo();
 });
+
+// تشغيل الفيديو الأول عند البداية
+updateVideo();
 
 // ---------- حساب عدد أيام الحب ----------
 const startDate = new Date('2026-03-04');
