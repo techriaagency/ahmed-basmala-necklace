@@ -630,7 +630,7 @@ html,body{
             المتصفح لا يدعم عرض الفيديو
           </video>
         </div>
-        <div class="tv-caption" id="vidCaption">الفيديو رقم 1</div>
+        <div class="tv-caption" id="vidCaption">الفيديو الأول</div>
       </div>
 
       <button class="vid-nav" id="vidNext" aria-label="الفيديو التالي">›</button>
@@ -768,58 +768,53 @@ function resetAuto(){
   auto = setInterval(nextSlide, 3500);
 }
 
-// ---------- نظام الفيديوهات الذكي (يجرب كل الامتدادات تلقائياً) ----------
-const totalVideos = 10;
-let currentVideoIndex = 1;
+// ---------- قائمة الفيديوهات المعرفة بأساميها الصريحة ----------
+// يمكنك تعديل أسماء الملفات هنا بكل سهولة لتطابق أسمائهم الفعلية داخل مجلد image
+const videoList = [
+  { file: "video1.mp4", name: "لحظة 1" },
+  { file: "video2.mp4", name: "لحظة 2" },
+  { file: "video3.mp4", name: "لحظة 3" },
+  { file: "video4.mp4", name: "لحظة 4" },
+  { file: "video5.mp4", name: "لحظة 5" },
+  { file: "video6.mp4", name: "لحظة 6" },
+  { file: "video7.mp4", name: "لحظة 7" },
+  { file: "video8.mp4", name: "لحظة 8" },
+  { file: "video9.mp4", name: "لحظة 9" },
+  { file: "video10.mp4", name: "لحظة 10" }
+];
+
+let currentIndex = 0;
 const mainVideo = document.getElementById('mainVideo');
 const vidPrev = document.getElementById('vidPrev');
 const vidNext = document.getElementById('vidNext');
 const vidCaption = document.getElementById('vidCaption');
 
-// قائمة الامتدادات المحتملة لتجربتها بالترتيب
-const extensions = ['.mp4', '.MP4', '.MOV', '.mov', '.mkv', '.MKV'];
-let extIndex = 0;
-
 function updateVideo() {
   mainVideo.pause();
-  extIndex = 0;
-  tryLoadingCurrentExtension();
+  const currentVideo = videoList[currentIndex];
+  mainVideo.src = `image/${currentVideo.file}`;
+  mainVideo.load();
+  vidCaption.textContent = currentVideo.name;
 }
-
-function tryLoadingCurrentExtension() {
-  if (extIndex < extensions.length) {
-    mainVideo.src = `image/video${currentVideoIndex}${extensions[extIndex]}`;
-    mainVideo.load();
-    vidCaption.textContent = `الفيديو رقم ${currentVideoIndex}`;
-  } else {
-    vidCaption.textContent = `تعذر العثور على ملف الفيديو رقم ${currentVideoIndex}`;
-  }
-}
-
-// لو الامتداد الحالي فشل، جرب الامتداد اللي بعده تلقائياً
-mainVideo.addEventListener('error', function() {
-  extIndex++;
-  tryLoadingCurrentExtension();
-});
 
 vidNext.addEventListener('click', () => {
-  currentVideoIndex = currentVideoIndex >= totalVideos ? 1 : currentVideoIndex + 1;
+  currentIndex = (currentIndex + 1) % videoList.length;
   updateVideo();
 });
 
 vidPrev.addEventListener('click', () => {
-  currentVideoIndex = currentVideoIndex <= 1 ? totalVideos : currentVideoIndex - 1;
+  currentIndex = (currentIndex - 1 + videoList.length) % videoList.length;
   updateVideo();
 });
 
-// تشغيل الفيديو الأول عند البداية
+// تشغيل أول فيديو عند التحميل
 updateVideo();
 
 // ---------- حساب عدد أيام الحب ----------
 const startDate = new Date('2026-03-04');
 const today = new Date();
-const diffTime = Math.abs(today - startDate);
-const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+let diffTime = Math.abs(today - startDate);
+let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 document.getElementById('daysTogether').textContent = diffDays;
 </script>
 </body>
