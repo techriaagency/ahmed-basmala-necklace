@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>حكايتنا</title>
+<title id="page-title">حكايتنا</title>
 <link rel="icon" type="image/png" href="image/LOGO.png">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@300;400;500;700;900&display=swap');
@@ -211,7 +211,6 @@ html,body{
 }
 .brand-credit span{ color: var(--blue); font-weight:700; }
 .brand-credit:hover{ color: var(--blue-deep); }
-
 
 /* ---------- timeline (horizontal cards) ---------- */
 .timeline-section{ margin-top: 46px; }
@@ -506,12 +505,12 @@ html,body{
 
 <div class="intro-cover" id="introCover">
   <img src="image/M7.jpg" alt="" class="intro-cover-img" onerror="this.style.display='none'">
-  <div class="intro-cover-hint">اكتبي كلمة السر عشان تبدأي 💛</div>
+  <div class="intro-cover-hint" data-translate="intro_hint">اكتبي كلمة السر عشان تبدأي 💛</div>
   <div class="intro-gate-form">
-    <input type="text" id="introPassword" class="intro-password-input" placeholder="كلمة السر" inputmode="numeric">
-    <button id="introUnlockBtn" class="intro-unlock-btn" type="button">دوسي هنا</button>
+    <input type="text" id="introPassword" class="intro-password-input" placeholder="كلمة السر" data-translate-placeholder="intro_placeholder" inputmode="numeric">
+    <button id="introUnlockBtn" class="intro-unlock-btn" type="button" data-translate="intro_btn">دوسي هنا</button>
   </div>
-  <div class="intro-error" id="introError" hidden>كلمة السر مش صح، جربي تاني 💭</div>
+  <div class="intro-error" id="introError" hidden data-translate="intro_error">كلمة السر مش صح، جربي تاني 💭</div>
 </div>
 
 <div class="hearts-bg" id="heartsBg" aria-hidden="true"></div>
@@ -521,8 +520,8 @@ html,body{
 
 <div class="page">
 
-  <div class="eyebrow eyebrow-ar">قصة حب</div>
-  <div class="quote-top"><span>من لحظة ما شُفتك</span><br><span class="accent">اتغيّر معنى كل حاجة</span></div>
+  <div class="eyebrow eyebrow-ar" data-translate="eyebrow">قصة حب</div>
+  <div class="quote-top"><span data-translate="quote_1">من لحظة ما شُفتك</span><br><span class="accent" data-translate="quote_2">اتغيّر معنى كل حاجة</span></div>
 
   <div class="divider-orn"><span class="line"></span>♥<span class="line"></span></div>
 
@@ -534,7 +533,7 @@ html,body{
         <div class="photo">
           <div class="photo-inner">
             <div class="photo-front" style="background:url('image/M1.jpg') center/cover no-repeat, linear-gradient(135deg,#F3E4D8,#D9B98C)"></div>
-            <div class="photo-back"><p>يوم ما اتقابلنا، حسيت إن في حاجة هتتغير 💫</p></div>
+            <div class="photo-back"><p data-translate="slide_1">يوم ما اتقابلنا، حسيت إن في حاجة هتتغير 💫</p></div>
           </div>
         </div>
       </div>
@@ -543,7 +542,7 @@ html,body{
         <div class="photo">
           <div class="photo-inner">
             <div class="photo-front" style="background:url('image/M10.jpeg') center/cover no-repeat, linear-gradient(135deg,#EFE1C9,#C9A24B)"></div>
-            <div class="photo-back"><p>عيونك هي أول مكان لقيت فيه راحتي</p></div>
+            <div class="photo-back"><p data-translate="slide_2">عيونك هي أول مكان لقيت فيه راحتي</p></div>
           </div>
         </div>
       </div>
@@ -552,7 +551,7 @@ html,body{
         <div class="photo">
           <div class="photo-inner">
             <div class="photo-front" style="background:url('image/M3.jpg') center/cover no-repeat, linear-gradient(135deg,#E9D9C2,#A9782E)"></div>
-            <div class="photo-back"><p>أول مرة اكتشفنا إن السفر مع بعض حكاية تانية 🌍</p></div>
+            <div class="photo-back"><p data-translate="slide_3">أول مرة اكتشفنا إن السفر مع بعض حكاية تانية 🌍</p></div>
           </div>
         </div>
       </div>
@@ -561,7 +560,7 @@ html,body{
         <div class="photo">
           <div class="photo-inner">
             <div class="photo-front" style="background:url('image/M11.JPEG') center/cover no-repeat, linear-gradient(135deg,#F6ECE2,#C9A24B)"></div>
-            <div class="photo-back"><p>وأنتِ أغلى ما اقتناه قلبي في هالدنيا</p></div>
+            <div class="photo-back"><p data-translate="slide_4">وأنتِ أغلى ما اقتناه قلبي في هالدنيا</p></div>
           </div>
         </div>
       </div>
@@ -570,7 +569,7 @@ html,body{
         <div class="photo">
           <div class="photo-inner">
             <div class="photo-front" style="background:url('image/M13.JPEG') center/cover no-repeat, linear-gradient(135deg,#E4CD97,#8A7266)"></div>
-            <div class="photo-back"><p>يوم قلنا فيه "نعم" قدام كل اللي بيحبونا 💍</p></div>
+            <div class="photo-back"><p data-translate="slide_5">يوم قلنا فيه "نعم" قدام كل اللي بيحبونا 💍</p></div>
           </div>
         </div>
       </div>
@@ -578,48 +577,48 @@ html,body{
     <div class="dots" id="dots"></div>
   </div>
 
-  <p class="quote-bottom">كل صورة فيها حتة من حكايتنا، وكل يوم بيزود سطر جديد فيها 💫</p>
+  <p class="quote-bottom" data-translate="quote_bottom">كل صورة فيها حتة من حكايتنا، وكل يوم بيزود سطر جديد فيها 💫</p>
 
   <!-- محطات حكايتنا -->
   <div class="timeline-section">
-    <div class="timeline-title">محطات حكايتنا 📖</div>
+    <div class="timeline-title" data-translate="timeline_title">محطات حكايتنا 📖</div>
     <div class="timeline-cards">
       <div class="t-card">
         <div class="t-dot">☎️</div>
-        <div class="t-label">أول مكالمة لبابا</div>
-        <div class="t-date">١٤ فبراير ٢٠٢٦</div>
-        <div class="t-quote">أول خطوة رسمية في طريقنا، بقلب واثق وكلمة صادقة</div>
+        <div class="t-label" data-translate="t_label_1">أول مكالمة لبابا</div>
+        <div class="t-date" data-translate="t_date_1">١٤ فبراير ٢٠٢٦</div>
+        <div class="t-quote" data-translate="t_quote_1">أول خطوة رسمية في طريقنا، بقلب واثق وكلمة صادقة</div>
       </div>
       <div class="t-card">
         <div class="t-dot">🤍</div>
-        <div class="t-label">أول قعدة بينا</div>
-        <div class="t-date">٤ مارس ٢٠٢٦</div>
-        <div class="t-quote">أول مرة قعدنا مع بعض، والوقت مر وإحنا مش حاسين</div>
+        <div class="t-label" data-translate="t_label_2">أول قعدة بينا</div>
+        <div class="t-date" data-translate="t_date_2">٤ مارس ٢٠٢٦</div>
+        <div class="t-quote" data-translate="t_quote_2">أول مرة قعدنا مع بعض، والوقت مر وإحنا مش حاسين</div>
       </div>
       <div class="t-card">
         <div class="t-dot">🤲</div>
-        <div class="t-label">قراية الفاتحة</div>
-        <div class="t-date">١١ مارس ٢٠٢٦</div>
-        <div class="t-quote">بداية حكايتنا الرسمية، وأول خطوة في طريقنا سوا</div>
+        <div class="t-label" data-translate="t_label_3">قراية الفاتحة</div>
+        <div class="t-date" data-translate="t_date_3">١١ مارس ٢٠٢٦</div>
+        <div class="t-quote" data-translate="t_quote_3">بداية حكايتنا الرسمية، وأول خطوة في طريقنا سوا</div>
       </div>
       <div class="t-card">
         <div class="t-dot">💛</div>
-        <div class="t-label">جبنا الشبكة</div>
-        <div class="t-date">١٦ مارس ٢٠٢٦</div>
-        <div class="t-quote">لحظة لبسنا الشبكة، وقلوبنا اتربطت قبل الإيدين</div>
+        <div class="t-label" data-translate="t_label_4">جبنا الشبكة</div>
+        <div class="t-date" data-translate="t_date_4">١٦ مارس ٢٠٢٦</div>
+        <div class="t-quote" data-translate="t_quote_4">لحظة لبسنا الشبكة، وقلوبنا اتربطت قبل الإيدين</div>
       </div>
       <div class="t-card">
         <div class="t-dot">💍</div>
-        <div class="t-label">خطوبتنا</div>
-        <div class="t-date">٢٦ مارس ٢٠٢٦</div>
-        <div class="t-quote">يوم قلنا فيه "نعم" قدام كل اللي بيحبونا</div>
+        <div class="t-label" data-translate="t_label_5">خطوبتنا</div>
+        <div class="t-date" data-translate="t_date_5">٢٦ مارس ٢٠٢٦</div>
+        <div class="t-quote" data-translate="t_quote_5">يوم قلنا فيه "نعم" قدام كل اللي بيحبونا</div>
       </div>
     </div>
   </div>
 
   <!-- الفيديوهات -->
   <div class="video-section">
-    <div class="video-title">لحظاتنا في فيديو 🎬</div>
+    <div class="video-title" data-translate="video_section_title">لحظاتنا في فيديو 🎬</div>
 
     <div class="video-carousel-wrap">
       <button class="vid-nav" id="vidPrev" aria-label="الفيديو السابق">‹</button>
@@ -627,7 +626,7 @@ html,body{
       <div class="tv-frame">
         <div class="tv-screen">
           <video id="mainVideo" controls playsinline>
-            المتصفح لا يدعم عرض الفيديو
+            <span data-translate="video_not_supported">المتصفح لا يدعم عرض الفيديو</span>
           </video>
         </div>
         <div class="tv-caption" id="vidCaption">الفيديو الأول</div>
@@ -639,7 +638,7 @@ html,body{
 
   <!-- صور إضافية -->
   <div class="gallery-section">
-    <div class="gallery-title">لحظات حلوة 📸</div>
+    <div class="gallery-title" data-translate="gallery_title">لحظات حلوة 📸</div>
     <div class="gallery-grid gallery-grid-2">
       <div class="gallery-item"><div class="g-bg" style="background:url('image/M2.jpg') center/cover no-repeat, linear-gradient(135deg,#F3E4D8,#D9B98C)"></div></div>
       <div class="gallery-item"><div class="g-bg" style="background:url('image/M4.jpeg') center/cover no-repeat, linear-gradient(135deg,#EFE1C9,#C9A24B)"></div></div>
@@ -651,26 +650,139 @@ html,body{
   <!-- العدادات -->
   <div class="counters">
     <div class="counter-card">
-      <div class="counter-label">من يوم ما قابلنا بعض</div>
+      <div class="counter-label" data-translate="counter_label">من يوم ما قابلنا بعض</div>
       <div class="seal">
         <div class="big-num" id="daysTogether">--</div>
-        <div class="small-label">يوم حب</div>
+        <div class="small-label" data-translate="counter_small_label">يوم حب</div>
       </div>
-      <div class="since-caption">من 4 مارس 2026 وإحنا بنكتب حكايتنا سوا 💍</div>
+      <div class="since-caption" data-translate="since_caption">من 4 مارس 2026 وإحنا بنكتب حكايتنا سوا 💍</div>
     </div>
   </div>
 
-  <div class="footer-note">صُنع بحب، لأجمل حكاية 💛</div>
+  <div class="footer-note" data-translate="footer_note">صُنع بحب، لأجمل حكاية 💛</div>
 
   <audio id="bgMusic" loop>
     <source src="image/Youm_Matbelna.mp3" type="audio/mpeg">
   </audio>
   <a class="brand-credit" href="https://linktr.ee/techriamarkting" target="_blank" rel="noopener">
-    <span>صُنع بواسطة</span> <span>Techria Team</span>
+    <span data-translate="brand_made">صُنع بواسطة</span> <span>Techria Team</span>
   </a>
 </div>
 
 <script>
+// ---------- الترجمة ----------
+const translations = {
+  ar: {
+    page_title: "حكايتنا",
+    intro_hint: "اكتبي كلمة السر عشان تبدأي 💛",
+    intro_placeholder: "كلمة السر",
+    intro_btn: "دوسي هنا",
+    intro_error: "كلمة السر مش صح، جربي تاني 💭",
+    eyebrow: "قصة حب",
+    quote_1: "من لحظة ما شُفتك",
+    quote_2: "اتغيّر معنى كل حاجة",
+    slide_1: "يوم ما اتقابلنا، حسيت إن في حاجة هتتغير 💫",
+    slide_2: "عيونك هي أول مكان لقيت فيه راحتي",
+    slide_3: "أول مرة اكتشفنا إن السفر مع بعض حكاية تانية 🌍",
+    slide_4: "وأنتِ أغلى ما اقتناه قلبي في هالدنيا",
+    slide_5: "يوم قلنا فيه \"نعم\" قدام كل اللي بيحبونا 💍",
+    quote_bottom: "كل صورة فيها حتة من حكايتنا، وكل يوم بيزود سطر جديد فيها 💫",
+    timeline_title: "محطات حكايتنا 📖",
+    t_label_1: "أول مكالمة لبابا",
+    t_date_1: "١٤ فبراير ٢٠٢٦",
+    t_quote_1: "أول خطوة رسمية في طريقنا، بقلب واثق وكلمة صادقة",
+    t_label_2: "أول قعدة بينا",
+    t_date_2: "٤ مارس ٢٠٢٦",
+    t_quote_2: "أول مرة قعدنا مع بعض، والوقت مر وإحنا مش حاسين",
+    t_label_3: "قراية الفاتحة",
+    t_date_3: "١١ مارس ٢٠٢٦",
+    t_quote_3: "بداية حكايتنا الرسمية، وأول خطوة في طريقنا سوا",
+    t_label_4: "جبنا الشبكة",
+    t_date_4: "١٦ مارس ٢٠٢٦",
+    t_quote_4: "لحظة لبسنا الشبكة، وقلوبنا اتربطت قبل الإيدين",
+    t_label_5: "خطوبتنا",
+    t_date_5: "٢٦ مارس ٢٠٢٦",
+    t_quote_5: "يوم قلنا فيه \"نعم\" قدام كل اللي بيحبونا",
+    video_section_title: "لحظاتنا في فيديو 🎬",
+    video_not_supported: "المتصفح لا يدعم عرض الفيديو",
+    gallery_title: "لحظات حلوة 📸",
+    counter_label: "من يوم ما قابلنا بعض",
+    counter_small_label: "يوم حب",
+    since_caption: "من 4 مارس 2026 وإحنا بنكتب حكايتنا سوا 💍",
+    footer_note: "صُنع بحب، لأجمل حكاية 💛",
+    brand_made: "صُنع بواسطة"
+  },
+  en: {
+    page_title: "Our Story",
+    intro_hint: "Enter the password to begin 💛",
+    intro_placeholder: "Password",
+    intro_btn: "Click Here",
+    intro_error: "Incorrect password, try again 💭",
+    eyebrow: "Love Story",
+    quote_1: "From the moment I saw you",
+    quote_2: "Everything changed",
+    slide_1: "The day we met, I felt something would change 💫",
+    slide_2: "Your eyes are the first place I found my comfort",
+    slide_3: "The first time we discovered traveling together is a different story 🌍",
+    slide_4: "And you are the most precious thing my heart has ever kept",
+    slide_5: "The day we said 'Yes' in front of everyone who loves us 💍",
+    quote_bottom: "Every picture holds a piece of our story, and every day adds a new line 💫",
+    timeline_title: "Our Milestones 📖",
+    t_label_1: "First call to Dad",
+    t_date_1: "February 14, 2026",
+    t_quote_1: "The first formal step on our path, with a confident heart and sincere words",
+    t_label_2: "Our first sitting together",
+    t_date_2: "March 4, 2026",
+    t_quote_2: "The first time we sat together, and time passed without us noticing",
+    t_label_3: "Reading Al-Fatihah",
+    t_date_3: "March 11, 2026",
+    t_quote_3: "The beginning of our official story, and the first step together",
+    t_label_4: "Getting the Engagement Ring",
+    t_date_4: "March 16, 2026",
+    t_quote_4: "The moment we wore the rings, our hearts connected before our hands",
+    t_label_5: "Our Engagement",
+    t_date_5: "March 26, 2026",
+    t_quote_5: "The day we said 'Yes' in front of everyone who loves us",
+    video_section_title: "Our Moments in Video 🎬",
+    video_not_supported: "Your browser does not support video playback",
+    gallery_title: "Sweet Moments 📸",
+    counter_label: "Since we met each other",
+    counter_small_label: "Days of love",
+    since_caption: "Since March 4, 2026, writing our story together 💍",
+    footer_note: "Made with love, for the most beautiful story 💛",
+    brand_made: "Made by"
+  }
+};
+
+let currentLang = 'ar';
+const translateBtn = document.getElementById('translateBtn');
+
+translateBtn.addEventListener('click', () => {
+  currentLang = currentLang === 'ar' ? 'en' : 'ar';
+  translateBtn.textContent = currentLang === 'ar' ? 'EN' : 'AR';
+  document.documentElement.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+  document.documentElement.setAttribute('lang', currentLang);
+
+  // تحديث النصوص العادية
+  document.querySelectorAll('[data-translate]').forEach(el => {
+    const key = el.getAttribute('data-translate');
+    if (translations[currentLang][key]) {
+      el.textContent = translations[currentLang][key];
+    }
+  });
+
+  // تحديث خانة الإدخال (Placeholder)
+  document.querySelectorAll('[data-translate-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-translate-placeholder');
+    if (translations[currentLang][key]) {
+      el.setAttribute('placeholder', translations[currentLang][key]);
+    }
+  });
+
+  // تحديث عنوان الصفحة
+  document.getElementById('page-title').textContent = translations[currentLang]['page_title'];
+});
+
 // ---------- الموسيقى الخلفية ----------
 const bgMusic = document.getElementById('bgMusic');
 const muteBtn = document.getElementById('muteBtn');
@@ -769,7 +881,6 @@ function resetAuto(){
 }
 
 // ---------- قائمة الفيديوهات المعرفة بأساميها الصريحة ----------
-// يمكنك تعديل أسماء الملفات هنا بكل سهولة لتطابق أسمائهم الفعلية داخل مجلد image
 const videoList = [
   { file: "v1.mp4", name: "لحظة 1" },
   { file: "v2.mp4", name: "لحظة 2" },
